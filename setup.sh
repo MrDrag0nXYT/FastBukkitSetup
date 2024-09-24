@@ -10,7 +10,7 @@ check_root() {
 install_dependencies() {
     if command -v apt-get &> /dev/null; then
         apt update -y && apt upgrade -y
-        apt install tmux nano ufw -y
+        apt install tmux nano ufw wget -y
 
         ufw allow 22/tcp
 
@@ -41,7 +41,7 @@ install_dependencies() {
     elif command -v dnf &> /dev/null; then
         dnf update -y && dnf install epel-release -y
         dnf install firewalld -y
-        dnf install tmux nano -y
+        dnf install tmux nano wget -y
         
         systemctl enable firewalld
         systemctl start firewalld
